@@ -5,7 +5,6 @@ Smart Borders [https://dwm.suckless.org/patches/smartborders/]
 
 Tap Resize [https://dwm.suckless.org/patches/tapresize/]
 Alternative Tags [https://dwm.suckless.org/patches/alternativetags/]
-Save floats [https://dwm.suckless.org/patches/save_floats/]
 Gapless Grid [https://dwm.suckless.org/patches/gaplessgrid/]
 
 Resize Corners [https://dwm.suckless.org/patches/resizecorners/]
