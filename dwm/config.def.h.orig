@@ -20,7 +20,7 @@ static const char col_gray4[]       = "#eeeeee";
 //Active Window Border & Topbar Second Color
 static const char col_cyan[]        = "#005577";
 
-static const unsigned int baralpha = 230;
+static const unsigned int baralpha = 215;
 static const unsigned int borderalpha = OPAQUE;
 
 static const char *colors[][3]      = {
@@ -35,7 +35,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8" };
+static const char *tags[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
@@ -56,14 +56,11 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 /* mouse scroll resize */
 static const int scrollsensetivity = 30; /* 1 means resize window by 1 pixel for each scroll event */
 
-#include "gaplessgrid.c" //includes the gaplessgrid layout
-
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
-	{ "##",      gaplessgrid},
 };
 
 /* key definitions */
