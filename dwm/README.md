@@ -13,3 +13,10 @@ Restartsig [https://dwm.suckless.org/patches/restartsig/] [Changed Shortcut to M
 Bar Height [https://dwm.suckless.org/patches/bar_height/]
 View on Tag [https://dwm.suckless.org/patches/viewontag/]
 Always Center [https://dwm.suckless.org/patches/alwayscenter/]
+
+vanitygaps [https://dwm.suckless.org/patches/vanitygaps/]
+pertag-perseltag [https://dwm.suckless.org/patches/pertag/]
+decoration hints [https://dwm.suckless.org/patches/decoration_hints/]
+
+swallow [https://dwm.suckless.org/patches/swallow/]
+(If swallow doesn't work, try changing St to st in config.h)
