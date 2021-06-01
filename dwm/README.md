@@ -23,4 +23,12 @@ swallow [https://dwm.suckless.org/patches/swallow/]
 
 clientopacity [https://dwm.suckless.org/patches/clientopacity/]
 Cool autostart [https://dwm.suckless.org/patches/cool_autostart/]
-cyclelayouts [https://dwm.suckless.org/patches/cyclelayouts/] (Cycle with MOD+ctrl/MOD +space)
+
+cyclelayouts [https://dwm.suckless.org/patches/cyclelayouts/]
+(Cycle with MOD+ctrl/MOD +space)
+
+focus adjacent tag [https://dwm.suckless.org/patches/focusadjacenttag/]
+(Windows10 like - MOD+ctrl+left/right to move to tags and same with shift instead of ctrl to move clients)
+
+scratchpads [https://dwm.suckless.org/patches/scratchpads/]
+(Commented out the if block in applyrule() inside dwm.c 'cause it introduced issues)
