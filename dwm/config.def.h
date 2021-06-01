@@ -11,6 +11,7 @@ static const unsigned int gappov    = 30;       /* vert outer gap between window
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const double defaultopacity  = 0.8;
 static const int viewontag          = 1;        /* 0 means viewontag is not enabled */
 static const int user_bh	    = 0;	/* 0 means that dwm will calculate bar height, >=1 means dwm will user_bh as bar height */
 static const char *fonts[]          = { "monospace:size=11" };
@@ -26,7 +27,7 @@ static const char col_gray4[]       = "#eeeeee";
 //Active Window Border & Topbar Second Color
 static const char col_cyan[]        = "#005577";
 
-static const unsigned int baralpha = 215;
+static const unsigned int baralpha = 217;
 static const unsigned int borderalpha = OPAQUE;
 
 static const char *colors[][3]      = {
@@ -40,6 +41,11 @@ static const unsigned int alphas[][3]      = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
+static const char *const autostart[] = {
+//	"st", NULL,
+	NULL /* terminate */
+};
+
 /* tagging */
 static const char *tags[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -49,11 +55,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "st",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	/* class     instance  title           tags mask  isfloating  opacity  		   isterminal  noswallow  monitor */
+	{ "Gimp",    NULL,     NULL,           0,         1,          1.0,		   0,           0,        -1 },
+	{ "Firefox", NULL,     NULL,           1 << 8,    0,          1.0,		   0,          -1,        -1 },
+	{ "vlc",     NULL,     NULL,           0,	  0,          1.0,		   0,          -1,        -1 },	
+	{ "st",      NULL,     NULL,           0,         0,          defaultopacity,	   1,           1,        -1 },
+	{ NULL,      NULL,     "Event Tester", 0,         0,          1.0,		   0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -143,7 +150,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[13]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[10]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
+// 	 { MODKEY,                       XK_space,  setlayout,      {0} },
+        { MODKEY,			XK_space,  cyclelayout,    {.i = +1 } }, //Cycles layout while mod+space
+	{ MODKEY|ControlMask,           XK_space,  cyclelayout,    {.i = -1 } }, //Cycles in reverse for mod+ctrl+space
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -152,6 +161,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_n,      togglealttag,   {0} },
+        { MODKEY|ShiftMask,             XK_KP_Add, changeopacity,       {.f = +0.1}},
+        { MODKEY|ShiftMask,             XK_KP_Subtract, changeopacity,  {.f = -0.1}},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
