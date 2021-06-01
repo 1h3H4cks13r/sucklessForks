@@ -32,3 +32,5 @@ focus adjacent tag [https://dwm.suckless.org/patches/focusadjacenttag/]
 
 scratchpads [https://dwm.suckless.org/patches/scratchpads/]
 (Commented out the if block in applyrule() inside dwm.c 'cause it introduced issues)
+
+Xresources [https://dwm.suckless.org/patches/xresources/]
